@@ -19,6 +19,19 @@ xy$grid_x <- 100 # all samples in the middle
 # y grid range for samples should be 400 to 3600
 range(xy$grid_y)
 
+# Space the samples away from the center line if they share the same y-coord
+ys <- sort(unique(xy$grid_y))
+for(i in 1:length(ys)){
+    n <- xy[grid_y == ys[i], .N] # find number of points that share this y-coord
+    if(n > 1){
+        xy[grid_y == ys[i], grid_x := sample(-floor(n/2):floor(n/2)+100, n, replace = FALSE)] # sample new x-coords around the center line
+    }
+}
+          
+# Plot
+xy[, plot(grid_x, grid_y)]
+
+
 # Location of Cape Hatteras in grid coords
 round((900 - min(xy$dist))/diff(range(xy$dist))*3200+400) # 1837
 
