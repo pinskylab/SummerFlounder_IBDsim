@@ -1,0 +1,48 @@
+%%%%% SIMULATION PARAMETERS %%%%%%%%%%%%
+Data_File_Name=pade
+Genepop_File_Extension=.txt
+Run_Number=1
+Random_Seeds=87144630
+Pause=Final
+
+%%%%% MARKERS PARAMETERS %%%%%%%%%%%%%%%
+Locus_Number = 663
+Mutation_Model = SNP
+Polymorphic_Loci_Only = T
+Ploidy=Diploid
+
+%%%%%% OUTPUT FILE FORMAT OPTIONS %%%%%%%
+Genepop=T
+%%%%%% VARIOUS COMPUTATION OPTIONS %%%%%%%
+%The code below can be specified in a single line %
+DiagnosticTables=Iterative_Identity_Probability,Hexp,Fis
+DiagnosticTables=Prob_Id_Matrix,Effective_Dispersal,Iterative_statistics
+
+%%%%%%%% DEMOGRAPHIC OPTIONS %%%%%%%%%%%%%
+%% LATTICE
+Lattice_Boundaries=absorbing
+Total_Range_Dispersal=F
+Lattice_SizeX=200
+Lattice_SizeY=4000
+Ind_Per_Pop=1
+Void_Nodes=1
+Specific_Density_Design=false
+Zone=F
+
+%% SAMPLE
+%% classical squared sample design: samples 1638 individuals, which will then need to be downsampled to 232 individuals occurring at the grid locations matching PADE observed samples
+Sample_SizeX=21
+Sample_SizeY=78
+Min_Sample_CoordinateX=90
+Min_Sample_CoordinateY=1600
+Ind_Per_Pop_Sampled=1
+
+%% DISPERSAL
+Dispersal_Distribution=Pareto 
+Immigration_Control=Simple1DProduct
+Total_Emigration_Rate=0.1
+Dist_max=10
+Pareto_Shape=0.5
+Geometric_Shape=NA
+
+%%%%%% EndOfSettings %%%%%%%%
